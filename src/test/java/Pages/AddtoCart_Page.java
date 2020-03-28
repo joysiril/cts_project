@@ -13,6 +13,10 @@ public class AddtoCart_Page {			// Add to cart page
 		this.dr=dr;
 	}
 	
+	By prod1=By.xpath("//div[@class='inventory_item'][1]//following::button");
+	By prod2=By.xpath("//div[@class='inventory_item'][3]//following::button");
+	By cart=By.xpath("//div[@id='shopping_cart_container']");
+	By checkout=By.xpath("//a[@class='btn_action checkout_button']");
 	
 	public void price() {               // Selecting the Price (high to low)
 		
@@ -26,30 +30,26 @@ public class AddtoCart_Page {			// Add to cart page
 	
 	public void addtocart_btn() {          //  Adding products to the cart                  
 	
-			dr.findElement(By.xpath("//div[@class='inventory_item'][1]//following::button")).click();
-			dr.findElement(By.xpath("//div[@class='inventory_item'][3]//following::button")).click();
-			dr.findElement(By.xpath("//div[@class='inventory_item'][5]//following::button")).click();
-		}
+			dr.findElement(prod1).click();
+			dr.findElement(prod2).click();
+	}
 	
 	public void goto_cart() {			  // Clicking the cart
-		dr.findElement(By.xpath("//div[@id='shopping_cart_container']")).click();
+		dr.findElement(cart).click();
 	}
 	 
-	public void rem_cart() {			 // Removing products from the cart
-		
-			dr.findElement(By.xpath("//div[@class='item_pricebar']//following::button[2]")).click();
-	}
 	
 	public void chkout() {				// Clicking checkout button
 		
-		dr.findElement(By.xpath("//a[@class='btn_action checkout_button']")).click();
+		dr.findElement(checkout).click();
 	}
+	
+	
 	
 	public void cart_page() {			// Calling all the cart_page functions
 		this.price();
 		this.addtocart_btn();
 		this.goto_cart();
-		this.rem_cart();
 		this.chkout();
 	}
 }

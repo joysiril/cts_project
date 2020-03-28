@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 import Base_Class.WrapperClass;
 
-public class Login_page  extends  WrapperClass {           //   Login page
+public class Login_page {           //   Login page
 	
 	By usr=By.xpath("//input[@id='user-name']");
 	By pwd=By.xpath("//input[@id='password']");
@@ -21,28 +21,29 @@ public class Login_page  extends  WrapperClass {           //   Login page
 	
 	public void username(String  name)        //   Entering Username
 	{
-		WebElement wt1=WaitForElement(usr,20);         
-		wt1.sendKeys(name);
+		dr.findElement(usr).sendKeys(name);
 	}
 	
 	public void password(String  passwd)      // Entering Password
 	{
-		WebElement wt2=WaitForElement(pwd,20);
-		wt2.sendKeys(passwd);
+		dr.findElement(pwd).sendKeys(passwd);
 	}
 	public void clk_btn()                     //  Clicking Login Button
 	{
-		WebElement wt3=WaitForElement(clk,20);
-		wt3.click();
+		dr.findElement(clk).click();
+	}
+	public String err_msg()
+	{
+		String exp_err=dr.findElement(By.xpath("//h3[@data-test='error']")).getText();
+		return exp_err;
 	}
 	
 	
-	
-	public  void Total_Login(String Usrname,String Pswd)      //  Calling Total Login Functions
+	public  void Total_Login(String Username,String Password)      //  Calling Total Login Functions
 	{
-		System.out.println(Usrname+" "+Pswd);
-		this.username(Usrname);
-		this.password(Pswd);
+		//System.out.println(Usrname+" "+Pswd);
+		this.username(Username);
+		this.password(Password);
 		this.clk_btn();
 		
 		

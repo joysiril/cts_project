@@ -5,9 +5,9 @@
     <classes>
       <class name="Test_Cases.Demo_Sauce_testng">
         <methods>
-          <include name="Logindata"/>
-          <include name="hd"/>
-          <include name="beforeMethod"/>
+          <include name="Logindata" invocation-numbers="0 1"/>
+          <include name="brow_launch"/>
+          <include name="addcart"/>
         </methods>
       </class> <!-- Test_Cases.Demo_Sauce_testng -->
     </classes>
